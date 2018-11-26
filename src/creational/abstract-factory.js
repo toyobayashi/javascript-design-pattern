@@ -2,8 +2,8 @@ function abstractFactory (SubClass, type) {
   if (typeof abstractFactory[type] !== 'function') throw new Error('Class not registered.')
   function __ () {}
   __.prototype = new abstractFactory[type]()
-  SubClass.constructor = SubClass
   SubClass.prototype = new __()
+  SubClass.prototype.constructor = SubClass
 }
 
 function _A () {
